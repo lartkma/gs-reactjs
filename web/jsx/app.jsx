@@ -33,8 +33,9 @@ var Row = React.createClass({
 
 var Headings = React.createClass({
 	render: function(){
+	    var i=0;
 	    var headings = this.props.headings.map(function(heading){
-	        return <Heading heading={heading} />
+	        return <Heading key={i++} heading={heading} />
 	    });
 		return <thead><tr>{headings}</tr></thead>
 	}
@@ -42,8 +43,9 @@ var Headings = React.createClass({
 
 var Rows = React.createClass({
 	render: function(){
+	    var i=0;
 		var rows = this.props.changeSets.map(function(changeSet){
-		    return <Row changeSet={changeSet} />
+		    return <Row key={i++} changeSet={changeSet} />
 		});
 		return <tbody>{rows}</tbody>
 	}
