@@ -1,3 +1,4 @@
+var headings = ['When', 'Who', 'Description'];
 var data = [ {
    "when" : "2 minutes ago",
    "who" : "Jill Dupre",
@@ -14,27 +15,28 @@ var data = [ {
    "description" : "Created new account"
 } ];
 
-var rows = data.map(function(row){
-    return <tr>
-    	<td>{row.when}</td>
-    	<td>{row.who}</td>
-    	<td>{row.description}</td>
-    </tr>;
-});
 
 var App = React.createClass({
     render: function(){
+        var headings = this.props.headings.map(function(heading){
+            return <th>{heading}</th>;
+        });
+        var rows = this.props.data.map(function(row){
+            return <tr>
+                <td>{row.when}</td>
+                <td>{row.who}</td>
+                <td>{row.description}</td>
+            </tr>;
+        });
         return <div>
-        	<h1>Recent changes</h1>
+        	<h1>{this.props.title}</h1>
             <table>
               <thead>
-                <th>When</th>
-                <th>Who</th>
-                <th>Description</th>
+        	    {headings}
               </thead>
               {rows}
             </table>
         </div>;
     }
 });
-ReactDOM.render(React.createElement(App), document.body);
+ReactDOM.render(<App title='Recent changes' headings={headings} data={data} />, document.body);
