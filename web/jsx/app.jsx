@@ -15,13 +15,19 @@ var data = [ {
    "description" : "Created new account"
 } ];
 
-var Heading = React.createClass({
+var RecentChangesTable = React.createClass({
+	render: function(){
+		return <table className="table">{this.props.children}</table>
+	}
+});
+
+RecentChangesTable.Heading = React.createClass({
 	render: function(){
 		return <th>{this.props.heading}</th>
 	}
 });
 
-var Row = React.createClass({
+RecentChangesTable.Row = React.createClass({
 	render: function(){
 		return <tr>
 			<td>{this.props.changeSet.when}</td>
@@ -31,21 +37,21 @@ var Row = React.createClass({
 	}
 });
 
-var Headings = React.createClass({
+RecentChangesTable.Headings = React.createClass({
 	render: function(){
 	    var i=0;
 	    var headings = this.props.headings.map(function(heading){
-	        return <Heading key={i++} heading={heading} />
+	        return <RecentChangesTable.Heading key={i++} heading={heading} />
 	    });
 		return <thead><tr>{headings}</tr></thead>
 	}
 });
 
-var Rows = React.createClass({
+RecentChangesTable.Rows = React.createClass({
 	render: function(){
 	    var i=0;
 		var rows = this.props.changeSets.map(function(changeSet){
-		    return <Row key={i++} changeSet={changeSet} />
+		    return <RecentChangesTable.Row key={i++} changeSet={changeSet} />
 		});
 		return <tbody>{rows}</tbody>
 	}
@@ -55,11 +61,11 @@ var App = React.createClass({
     render: function(){
         return <div>
         	<h1>{this.props.title}</h1>
-            <table className="table">
+            <RecentChangesTable>
               {/*Stand alone comment*/}
-              <Headings headings={this.props.headings} />
-              <Rows changeSets={this.props.data} />
-            </table>
+              <RecentChangesTable.Headings headings={this.props.headings} />
+              <RecentChangesTable.Rows changeSets={this.props.data} />
+            </RecentChangesTable>
         </div>;
     }
 });
