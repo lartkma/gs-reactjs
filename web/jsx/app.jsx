@@ -7,12 +7,12 @@ var data = [ {
 {
    "when" : "1 hour ago",
    "who" : "Lose White",
-   "description" : "Added fist chapter &amp; stuff"
+   "description" : "Added fist chapter"
 },
 {
    "when" : "2 hours ago",
    "who" : "Jordan Whash",
-   "description" : "Created new account & stuff"
+   "description" : "Created new account"
 } ];
 
 var RecentChangesTable = React.createClass({
@@ -61,7 +61,7 @@ RecentChangesTable.Rows = React.createClass({
 var App = React.createClass({
     render: function(){
         return <div>
-        	<h1>{this.props.title} &amp; stuff</h1>
+        	<h1>{this.props.title}</h1>
             <RecentChangesTable>
               {/*Stand alone comment*/}
               <RecentChangesTable.Headings headings={this.props.headings} />
