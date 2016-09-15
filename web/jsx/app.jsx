@@ -17,7 +17,7 @@ var data = [ {
 
 var RecentChangesTable = React.createClass({
 	render: function(){
-		return <table className="table">{this.props.children}</table>
+		return <table className="recentChangesTable table">{this.props.children}</table>
 	}
 });
 
@@ -29,7 +29,8 @@ RecentChangesTable.Heading = React.createClass({
 
 RecentChangesTable.Row = React.createClass({
 	render: function(){
-		return <tr>
+	    var rowStyle = {backgroundColor: 'aliceblue'};
+		return <tr style={rowStyle}>
 			<td>{this.props.changeSet.when}</td>
 			<td>{this.props.changeSet.who}</td>
 			<td>{this.props.changeSet.description}</td>
