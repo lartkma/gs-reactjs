@@ -56,10 +56,11 @@ var App = React.createClass({
         return <div>
         	<h1>{this.props.title}</h1>
             <table className="table">
+              {/*Stand alone comment*/}
               <Headings headings={this.props.headings} />
               <Rows changeSets={this.props.data} />
             </table>
         </div>;
     }
 });
-ReactDOM.render(<App title='Recent changes' headings={headings} data={data} />, document.getElementById('container'));
+ReactDOM.render(<App /*comment inside a tag*/ title='Recent changes' headings={headings} data={data} />, document.getElementById('container'));
