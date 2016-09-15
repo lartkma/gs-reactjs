@@ -40,9 +40,8 @@ RecentChangesTable.Row = React.createClass({
 
 RecentChangesTable.Headings = React.createClass({
 	render: function(){
-	    var i=0;
-	    var headings = this.props.headings.map(function(heading){
-	        return <RecentChangesTable.Heading key={i++} heading={heading} />
+	    var headings = this.props.headings.map(function(heading, index){
+	        return <RecentChangesTable.Heading key={index} heading={heading} />
 	    });
 		return <thead><tr>{headings}</tr></thead>
 	}
@@ -50,9 +49,8 @@ RecentChangesTable.Headings = React.createClass({
 
 RecentChangesTable.Rows = React.createClass({
 	render: function(){
-	    var i=0;
-		var rows = this.props.changeSets.map(function(changeSet){
-		    return <RecentChangesTable.Row key={i++} changeSet={changeSet} />
+		var rows = this.props.changeSets.map(function(changeSet, index){
+		    return <RecentChangesTable.Row key={index} changeSet={changeSet} />
 		});
 		return <tbody>{rows}</tbody>
 	}
