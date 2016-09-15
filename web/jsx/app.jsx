@@ -69,4 +69,6 @@ var App = React.createClass({
         </div>;
     }
 });
-ReactDOM.render(<App /*comment inside a tag*/ title='Recent changes' headings={headings} data={data} />, document.getElementById('container'));
+
+var props = {title: 'Recent changes', headings: headings, data: data};
+ReactDOM.render(<App /*comment inside a tag*/ {...props} />, document.getElementById('container'));
